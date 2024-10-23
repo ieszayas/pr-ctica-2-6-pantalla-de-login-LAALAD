@@ -5,7 +5,6 @@
 package Modelo;
 
 import java.util.ArrayList;
-import java.util.logging.Logger;
 
 /**
  *
@@ -24,7 +23,7 @@ public class Login {
     }
     
     public boolean comprobarUsuarioRegistrado(String username, String password){
-        for (Usuario usuario : usuarios) {
+        for (Usuario usuario : getUsuarios()) {
             if(usuario.getUsername().equals(username) && usuario.getPassword().equals(password)){
                 return true;
             }

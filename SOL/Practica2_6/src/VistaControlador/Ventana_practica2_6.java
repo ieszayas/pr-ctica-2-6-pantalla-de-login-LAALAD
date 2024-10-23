@@ -10,6 +10,7 @@ import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Insets;
 import javax.swing.BorderFactory;
+import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
@@ -41,7 +42,12 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jFrame1 = new javax.swing.JFrame();
+        ventana_log_correcto = new javax.swing.JFrame();
+        jPanel1 = new javax.swing.JPanel();
+        bienvenido = new javax.swing.JLabel();
+        msg_bienvenida = new javax.swing.JLabel();
+        icono = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         panel_loggin = new javax.swing.JPanel();
         etiqueta_instrucciones = new javax.swing.JLabel();
         eiqueta_usuario = new javax.swing.JLabel();
@@ -52,15 +58,69 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
         boton_loggear = new javax.swing.JButton();
         msg_incorrecta = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
-        jFrame1.getContentPane().setLayout(jFrame1Layout);
-        jFrame1Layout.setHorizontalGroup(
-            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        jPanel1.setPreferredSize(new java.awt.Dimension(330, 330));
+
+        bienvenido.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        bienvenido.setText("Bienvenido");
+
+        msg_bienvenida.setText("msg usuario");
+
+        icono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Media/imagen.png"))); // NOI18N
+
+        jButton1.setText("Cerrar sesión");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 329, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(67, 67, 67)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(48, 48, 48)
+                            .addComponent(icono))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(bienvenido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(msg_bienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(47, 47, 47)
+                            .addComponent(jButton1)))
+                    .addContainerGap(73, Short.MAX_VALUE)))
         );
-        jFrame1Layout.setVerticalGroup(
-            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(32, 32, 32)
+                    .addComponent(bienvenido)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(icono)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(msg_bienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(jButton1)
+                    .addContainerGap(32, Short.MAX_VALUE)))
+        );
+
+        javax.swing.GroupLayout ventana_log_correctoLayout = new javax.swing.GroupLayout(ventana_log_correcto.getContentPane());
+        ventana_log_correcto.getContentPane().setLayout(ventana_log_correctoLayout);
+        ventana_log_correctoLayout.setHorizontalGroup(
+            ventana_log_correctoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ventana_log_correctoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE))
+        );
+        ventana_log_correctoLayout.setVerticalGroup(
+            ventana_log_correctoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -74,21 +134,21 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
         etiqueta_contrasena.setText("Contraseña");
 
         caja_username.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                caja_usernameMouseClicked(evt);
-            }
-        });
-        caja_username.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                caja_usernameActionPerformed(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                caja_usernameMousePressed(evt);
             }
         });
         caja_username.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                caja_usernameKeyReleased(evt);
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                caja_usernameKeyPressed(evt);
             }
         });
 
+        caja_password.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                caja_passwordMousePressed(evt);
+            }
+        });
         caja_password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 caja_passwordActionPerformed(evt);
@@ -181,7 +241,11 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void opcion_mostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcion_mostrarActionPerformed
-        // TODO add your handling code here:
+        if (opcion_mostrar.isSelected()) {
+            caja_password.setEchoChar((char) 0);
+        } else {
+            caja_password.setEchoChar('*');
+        }
     }//GEN-LAST:event_opcion_mostrarActionPerformed
 
     private void boton_loggearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_loggearActionPerformed
@@ -189,12 +253,19 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
         String password = String.valueOf(caja_password.getPassword());
         Boolean credenciales_correctas = login.comprobarUsuarioRegistrado(username, password);
         if (credenciales_correctas) {
-            
+            mostrarVentanaLogeo(username);
         } else {
             vibrar();
             avisoIncorrectas();
         }
     }//GEN-LAST:event_boton_loggearActionPerformed
+
+    public void mostrarVentanaLogeo(String usuario) {
+        ventana_log_correcto.setSize(330, 330);
+        msg_bienvenida.setText("El usuario " + usuario + " está logueado");
+        ventana_log_correcto.setLocationRelativeTo(this);
+        ventana_log_correcto.setVisible(true);
+    }
 
     public void vibrar() {
         final int originalX = this.getLocationOnScreen().x;  // Obtener la posición original en X
@@ -219,38 +290,41 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
 
     //para conectar la otra ventana se pone nombreventana.setVisible(true);
     public void avisoIncorrectas() {
-        int altura = caja_username.getHeight();
-        int ancho = caja_username.getWidth();
-        
         msg_incorrecta.setVisible(true);
 //        Border rojo = new Border(Color.RED);
-        Border bordeRojo = BorderFactory.createLineBorder(Color.RED,2);
+        Border bordeRojo = BorderFactory.createLineBorder(Color.RED, 2);
         caja_username.setBorder(bordeRojo);
         caja_password.setBorder(bordeRojo);
     }
 
     public void resetearLogin() {
         msg_incorrecta.setVisible(false);
+        caja_username.setText("");
+        caja_password.setText("");
         caja_username.setBorder(original);
         caja_password.setBorder(original);
     }
-
-
-    private void caja_usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caja_usernameActionPerformed
-
-    }//GEN-LAST:event_caja_usernameActionPerformed
 
     private void caja_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caja_passwordActionPerformed
 
     }//GEN-LAST:event_caja_passwordActionPerformed
 
-    private void caja_usernameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja_usernameKeyReleased
-      
-    }//GEN-LAST:event_caja_usernameKeyReleased
-
-    private void caja_usernameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_caja_usernameMouseClicked
+    private void caja_usernameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_caja_usernameMousePressed
         resetearLogin();
-    }//GEN-LAST:event_caja_usernameMouseClicked
+    }//GEN-LAST:event_caja_usernameMousePressed
+
+    private void caja_passwordMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_caja_passwordMousePressed
+
+    }//GEN-LAST:event_caja_passwordMousePressed
+
+    private void caja_usernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja_usernameKeyPressed
+
+    }//GEN-LAST:event_caja_usernameKeyPressed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ventana_log_correcto.setVisible(false);
+        resetearLogin();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -288,15 +362,20 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bienvenido;
     private javax.swing.JButton boton_loggear;
     private javax.swing.JPasswordField caja_password;
     private javax.swing.JTextField caja_username;
     private javax.swing.JLabel eiqueta_usuario;
     private javax.swing.JLabel etiqueta_contrasena;
     private javax.swing.JLabel etiqueta_instrucciones;
-    private javax.swing.JFrame jFrame1;
+    private javax.swing.JLabel icono;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel msg_bienvenida;
     private javax.swing.JLabel msg_incorrecta;
     private javax.swing.JCheckBox opcion_mostrar;
     private javax.swing.JPanel panel_loggin;
+    private javax.swing.JFrame ventana_log_correcto;
     // End of variables declaration//GEN-END:variables
 }
