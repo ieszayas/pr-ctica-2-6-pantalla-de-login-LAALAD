@@ -58,6 +58,8 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
         boton_loggear = new javax.swing.JButton();
         msg_incorrecta = new javax.swing.JLabel();
 
+        ventana_log_correcto.setTitle("Principal");
+
         jPanel1.setPreferredSize(new java.awt.Dimension(330, 330));
 
         bienvenido.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
