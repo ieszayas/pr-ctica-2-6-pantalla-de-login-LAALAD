@@ -29,17 +29,13 @@ public class ConexionBBDD {
                 String contrasenia = null;
                 con = DriverManager.getConnection(cadena_conexion , usuario, contrasenia);
             } catch (Exception e) {
-                System.out.println("Muy mal >:>" + e.toString());
+                System.out.println("Error al conectar la base de datos" + e.toString());
                 e.printStackTrace();//muestra toda la info de la excepcion en rojo
             }
         }
         return con;
     }
 
-    /*public static String getNOMBRE_BBDD() {
-        return NOMBRE_BBDD;
-    }*/
-    
     public static void desconectarBBDD() {
         try {
             if (con != null) {

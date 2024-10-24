@@ -4,6 +4,7 @@
  */
 package Modelo;
 
+import IO.UsuarioDAO;
 import java.util.ArrayList;
 
 /**
@@ -11,19 +12,11 @@ import java.util.ArrayList;
  * @author adria
  */
 public class Login {
-    private ArrayList<Usuario> usuarios = new ArrayList<>();    
-
+    
     public Login (){}
-    
-    public ArrayList<Usuario> getUsuarios() {
-        usuarios.add(new Usuario("adriana", "1234"));
-        usuarios.add(new Usuario("alba", "1234"));
-        usuarios.add(new Usuario("paul", "5678"));
-        return usuarios;
-    }
-    
-    public boolean comprobarUsuarioRegistrado(String username, String password){
-        for (Usuario usuario : getUsuarios()) {
+        
+    public boolean comprobarUsuario(String username, String password){
+        for (Usuario usuario : UsuarioDAO.listarUsuarios()) {
             if(usuario.getUsername().equals(username) && usuario.getPassword().equals(password)){
                 return true;
             }
@@ -31,5 +24,19 @@ public class Login {
         return false;
     }
     
+    public boolean comprobarUsername(String username){
+        for (Usuario usuario : UsuarioDAO.listarUsuarios()) {
+            if(usuario.getUsername().equals(username) ){
+                return true;
+            }
+        }
+        return false;
+    }
     
+    /*public ArrayList<Usuario> getUsuarios() {
+        usuarios.add(new Usuario("adriana", "1234"));
+        usuarios.add(new Usuario("alba", "1234"));
+        usuarios.add(new Usuario("paul", "5678"));
+        return usuarios;
+    }*/
 }
