@@ -33,6 +33,17 @@ public class Login {
         return false;
     }
     
+    public boolean validarCorreo(String email){        
+        String validado = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
+        if (!email.matches(validado)) {            
+            return false;
+        }
+        return true;
+    }
+    
+    
+            
+    
     /*public ArrayList<Usuario> getUsuarios() {
         usuarios.add(new Usuario("adriana", "1234"));
         usuarios.add(new Usuario("alba", "1234"));
