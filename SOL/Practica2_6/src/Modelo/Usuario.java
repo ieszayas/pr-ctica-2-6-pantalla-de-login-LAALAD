@@ -11,10 +11,10 @@ package Modelo;
 public class Usuario {
     private String username;
     private String password;
-    private String nombre = "";
-    private String apellido = "";
-    private String fecha_nac = "";
-    private String correo = "";
+    private String nombre;
+    private String apellido;
+    private String fecha_nac;
+    private String correo;
 
     public Usuario(String username, String password) {
         this.username = username;

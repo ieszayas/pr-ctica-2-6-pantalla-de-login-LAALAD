@@ -41,7 +41,16 @@ public class Login {
         return true;
     }
     
-    
+    public Usuario seleccionarUsuario (String username){
+        for (Usuario usuario : UsuarioDAO.listarUsuarios()) {
+            if(usuario.getUsername().equals(username) ){
+                return usuario;
+            }
+        }
+        return null;
+    }
+        
+    }
             
     
     /*public ArrayList<Usuario> getUsuarios() {
@@ -50,4 +59,4 @@ public class Login {
         usuarios.add(new Usuario("paul", "5678"));
         return usuarios;
     }*/
-}
+

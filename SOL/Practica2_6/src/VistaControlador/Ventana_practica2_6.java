@@ -23,9 +23,8 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
      * Creates new form Ventana_practica2_6
      */
     Login login = new Login();
-    
     Border original;
-    
+
     public Ventana_practica2_6() {
         initComponents();
         IniciarBBDD.crearBBDD();
@@ -49,6 +48,7 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
         icono = new javax.swing.JLabel();
         cerrar_sesion = new javax.swing.JButton();
         boton_nuevo_usuario_log = new javax.swing.JButton();
+        modificar_password = new javax.swing.JButton();
         ventana_crear_usuario = new javax.swing.JFrame();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -71,6 +71,16 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
         caja_fecha_nac = new javax.swing.JTextField();
         caja_correo = new javax.swing.JTextField();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        ventana_cambiar_password = new javax.swing.JFrame();
+        jPanel3 = new javax.swing.JPanel();
+        caja_antigua = new javax.swing.JPasswordField();
+        texto_password = new javax.swing.JLabel();
+        etiqueta_antigua = new javax.swing.JLabel();
+        etiqueta_nueva = new javax.swing.JLabel();
+        etiqueta_confirmar = new javax.swing.JLabel();
+        caja_nueva = new javax.swing.JPasswordField();
+        caja_confirmar = new javax.swing.JPasswordField();
+        actualizar_password = new javax.swing.JButton();
         panel_loggin = new javax.swing.JPanel();
         etiqueta_instrucciones = new javax.swing.JLabel();
         eiqueta_usuario = new javax.swing.JLabel();
@@ -107,22 +117,30 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
             }
         });
 
+        modificar_password.setText("Cambiar contraseña");
+        modificar_password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificar_passwordActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cerrar_sesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(boton_nuevo_usuario_log, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bienvenido, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
-                    .addComponent(msg_bienvenida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(26, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(icono)
                 .addGap(70, 70, 70))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cerrar_sesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bienvenido, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+                    .addComponent(msg_bienvenida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(boton_nuevo_usuario_log, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(modificar_password, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,11 +151,13 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
                 .addComponent(icono)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(msg_bienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addComponent(modificar_password)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(boton_nuevo_usuario_log)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cerrar_sesion)
-                .addGap(56, 56, 56))
+                .addGap(35, 35, 35))
         );
 
         javax.swing.GroupLayout ventana_log_correctoLayout = new javax.swing.GroupLayout(ventana_log_correcto.getContentPane());
@@ -190,22 +210,11 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
             }
         });
 
-        caja_username_crear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                caja_username_crearActionPerformed(evt);
-            }
-        });
-
         caja_correo.setForeground(new java.awt.Color(153, 153, 153));
         caja_correo.setText("p.ej: ejemplo@ejemplo.com");
         caja_correo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 caja_correoMousePressed(evt);
-            }
-        });
-        caja_correo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                caja_correoActionPerformed(evt);
             }
         });
 
@@ -324,6 +333,110 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        texto_password.setText("Texto password");
+
+        etiqueta_antigua.setText("Contraseña antigua");
+
+        etiqueta_nueva.setText("Contraseña nueva");
+
+        etiqueta_confirmar.setText("Confirme contraseña");
+
+        caja_nueva.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                caja_nuevaMousePressed(evt);
+            }
+        });
+        caja_nueva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                caja_nuevaActionPerformed(evt);
+            }
+        });
+
+        caja_confirmar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                caja_confirmarMousePressed(evt);
+            }
+        });
+
+        actualizar_password.setText("Actualizar");
+        actualizar_password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actualizar_passwordActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(texto_password)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(etiqueta_confirmar)
+                                .addComponent(etiqueta_nueva))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(etiqueta_antigua)))
+                        .addGap(29, 29, 29)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(caja_antigua, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(caja_nueva, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(caja_confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 20, Short.MAX_VALUE))))))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(89, 89, 89)
+                .addComponent(actualizar_password)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(texto_password)
+                .addGap(32, 32, 32)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(caja_antigua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etiqueta_antigua))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(etiqueta_nueva)
+                    .addComponent(caja_nueva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(etiqueta_confirmar)
+                    .addComponent(caja_confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addComponent(actualizar_password)
+                .addContainerGap(42, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout ventana_cambiar_passwordLayout = new javax.swing.GroupLayout(ventana_cambiar_password.getContentPane());
+        ventana_cambiar_password.getContentPane().setLayout(ventana_cambiar_passwordLayout);
+        ventana_cambiar_passwordLayout.setHorizontalGroup(
+            ventana_cambiar_passwordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ventana_cambiar_passwordLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        ventana_cambiar_passwordLayout.setVerticalGroup(
+            ventana_cambiar_passwordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ventana_cambiar_passwordLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
         setResizable(false);
@@ -337,22 +450,6 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
         caja_username.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 caja_usernameMousePressed(evt);
-            }
-        });
-        caja_username.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                caja_usernameKeyPressed(evt);
-            }
-        });
-
-        caja_password.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                caja_passwordMousePressed(evt);
-            }
-        });
-        caja_password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                caja_passwordActionPerformed(evt);
             }
         });
 
@@ -474,14 +571,14 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
             avisoCredencialesIncorrectas();
         }
     }//GEN-LAST:event_boton_loggearActionPerformed
-    
+
     public void mostrarVentanaLogeo(String usuario) {
         ventana_log_correcto.setSize(330, 330);
         msg_bienvenida.setText("El usuario " + usuario + " está logueado");
         ventana_log_correcto.setLocationRelativeTo(this);
         ventana_log_correcto.setVisible(true);
     }
-    
+
     public void vibrar() {
         final int originalX = this.getLocationOnScreen().x;  // Obtener la posición original en X
         final int originalY = this.getLocationOnScreen().y;  // Obtener la posición original en Y
@@ -511,7 +608,7 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
         caja_username.setBorder(bordeRojo);
         caja_password.setBorder(bordeRojo);
     }
-    
+
     public void resetearLogin() {
         msg_incorrecta.setVisible(false);
         caja_username.setText("");
@@ -520,21 +617,19 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
         caja_password.setBorder(original);
     }
 
-    private void caja_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caja_passwordActionPerformed
-
-    }//GEN-LAST:event_caja_passwordActionPerformed
+    public void resetearAgregar() {
+        caja_username_crear.setText("");
+        caja_contrasena_crear.setText("");
+        caja_contrasena_crear_2.setText("");
+        caja_nombre.setText("");
+        caja_apellido.setText("");
+        caja_fecha_nac.setText("");
+        caja_correo.setText("p.ej: ejemplo@ejemplo.com");
+    }
 
     private void caja_usernameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_caja_usernameMousePressed
         resetearLogin();
     }//GEN-LAST:event_caja_usernameMousePressed
-
-    private void caja_passwordMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_caja_passwordMousePressed
-
-    }//GEN-LAST:event_caja_passwordMousePressed
-
-    private void caja_usernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja_usernameKeyPressed
-
-    }//GEN-LAST:event_caja_usernameKeyPressed
 
     private void cerrar_sesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrar_sesionActionPerformed
         ventana_log_correcto.setVisible(false);
@@ -545,10 +640,6 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
         mostrarVentanaCrearUsuario();
     }//GEN-LAST:event_crear_cuentaMousePressed
 
-    private void caja_username_crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caja_username_crearActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_caja_username_crearActionPerformed
-
     private void boton_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_volverActionPerformed
         ventana_crear_usuario.setVisible(false);
     }//GEN-LAST:event_boton_volverActionPerformed
@@ -556,7 +647,7 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
     private void boton_nuevo_usuario_logActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_nuevo_usuario_logActionPerformed
         mostrarVentanaCrearUsuario();
     }//GEN-LAST:event_boton_nuevo_usuario_logActionPerformed
-    
+
     private void mostrarVentanaCrearUsuario() {
         ventana_crear_usuario.setSize(400, 550);
         ventana_crear_usuario.setLocationRelativeTo(this);
@@ -567,26 +658,29 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
         String username = caja_username_crear.getText();
         String contrasena = caja_contrasena_crear.getText();
         String contrasena_confirmacion = caja_contrasena_crear_2.getText();
-        
+
         if (username.isBlank() || contrasena.isBlank() || contrasena_confirmacion.isBlank()) {
             JOptionPane.showMessageDialog(null, "Por favor, rellene todos los campos obligtorios.", "Campos Obligatorios", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        
+
         if (login.comprobarUsername(username)) {
             //caja_username_crear.setBackground(Color.red);
             JOptionPane.showMessageDialog(null, "El nombre de usuario " + username + " ya está registrado", "Usuario existente", JOptionPane.WARNING_MESSAGE);
             caja_username_crear.setText("");
             return;
         }
-        
+
         if (!contrasena.equals(contrasena_confirmacion)) {
             JOptionPane.showMessageDialog(null, "Las contraseñas introducidas no coinciden", "Contraseña no coincide", JOptionPane.WARNING_MESSAGE);
             caja_contrasena_crear.setText("");
             caja_contrasena_crear_2.setText("");
             return;
         }
-        
+        if (caja_correo.getText().equals("p.ej: ejemplo@ejemplo.com")) {
+            caja_correo.setText("");
+        }
+
         if (!caja_correo.getText().isBlank()) {
             if (!login.validarCorreo(caja_correo.getText())) {
                 JOptionPane.showMessageDialog(null, "Introduzca un correo válido", "Correo no válido ", JOptionPane.WARNING_MESSAGE);
@@ -594,7 +688,7 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
                 return;
             }
         }
-        
+
         Usuario nuevo = new Usuario(username, contrasena);
         nuevo.setNombre(caja_nombre.getText());
         nuevo.setApellido(caja_apellido.getText());
@@ -602,19 +696,60 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
         nuevo.setCorreo(caja_correo.getText());
         UsuarioDAO.insertarUsuario(nuevo);
         ventana_crear_usuario.setVisible(false);
+        resetearAgregar();
     }//GEN-LAST:event_boton_agregarActionPerformed
-
-    private void caja_correoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caja_correoActionPerformed
-
-    }//GEN-LAST:event_caja_correoActionPerformed
 
     private void caja_correoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_caja_correoMousePressed
         if (caja_correo.getText().equals("p.ej: ejemplo@ejemplo.com")) {
             caja_correo.setText("");
             caja_correo.setForeground(new java.awt.Color(38, 38, 38));
-            
         }
     }//GEN-LAST:event_caja_correoMousePressed
+
+    private void modificar_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificar_passwordActionPerformed
+        mostrarVentanaModifPassword();
+    }//GEN-LAST:event_modificar_passwordActionPerformed
+
+    private void mostrarVentanaModifPassword() {
+        ventana_cambiar_password.setSize(330, 330);
+        texto_password.setText("Modificar contraseña del usuario ");
+        ventana_cambiar_password.setLocationRelativeTo(null);
+        ventana_cambiar_password.setVisible(true);
+    }
+
+    private void actualizar_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizar_passwordActionPerformed
+        Usuario modificar = login.seleccionarUsuario(caja_username.getText());
+
+        String passwd_antigua = String.valueOf(caja_antigua.getPassword());
+        String passwd_nueva = String.valueOf(caja_nueva.getPassword());
+        String passwd_nueva_confirmada = String.valueOf(caja_confirmar.getPassword());
+
+        Boolean passwd_antigua_correcta = passwd_antigua.equals(modificar.getPassword());
+        Boolean passwd_nueva_coincide = passwd_nueva.equals(passwd_nueva_confirmada);
+
+        if (!passwd_antigua_correcta) {
+            JOptionPane.showMessageDialog(null, "La contraseña actual introducida no es correcta.", "Contraseña incorrecta", JOptionPane.WARNING_MESSAGE);
+        }
+
+        if (!passwd_nueva_coincide) {
+            caja_nueva.setBackground(Color.red);
+            caja_confirmar.setBackground(Color.red);
+        }
+    }//GEN-LAST:event_actualizar_passwordActionPerformed
+
+    private void caja_nuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caja_nuevaActionPerformed
+
+    }//GEN-LAST:event_caja_nuevaActionPerformed
+
+    private void caja_nuevaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_caja_nuevaMousePressed
+        caja_nueva.setBackground(Color.white);
+        caja_confirmar.setBackground(Color.white);
+    }//GEN-LAST:event_caja_nuevaMousePressed
+
+    private void caja_confirmarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_caja_confirmarMousePressed
+        caja_nueva.setBackground(Color.white);
+        caja_confirmar.setBackground(Color.white);
+    }//GEN-LAST:event_caja_confirmarMousePressed
 
     /**
      * @param args the command line arguments
@@ -652,24 +787,30 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton actualizar_password;
     private javax.swing.JLabel bienvenido;
     private javax.swing.JButton boton_agregar;
     private javax.swing.JButton boton_loggear;
     private javax.swing.JButton boton_nuevo_usuario_log;
     private javax.swing.JButton boton_volver;
+    private javax.swing.JPasswordField caja_antigua;
     private javax.swing.JTextField caja_apellido;
+    private javax.swing.JPasswordField caja_confirmar;
     private javax.swing.JTextField caja_contrasena_crear;
     private javax.swing.JTextField caja_contrasena_crear_2;
     private javax.swing.JTextField caja_correo;
     private javax.swing.JTextField caja_fecha_nac;
     private javax.swing.JTextField caja_nombre;
+    private javax.swing.JPasswordField caja_nueva;
     private javax.swing.JPasswordField caja_password;
     private javax.swing.JTextField caja_username;
     private javax.swing.JTextField caja_username_crear;
     private javax.swing.JButton cerrar_sesion;
     private javax.swing.JLabel crear_cuenta;
     private javax.swing.JLabel eiqueta_usuario;
+    private javax.swing.JLabel etiqueta_antigua;
     private javax.swing.JLabel etiqueta_apellido;
+    private javax.swing.JLabel etiqueta_confirmar;
     private javax.swing.JLabel etiqueta_contrasena;
     private javax.swing.JLabel etiqueta_contrasena_crear_usuario;
     private javax.swing.JLabel etiqueta_contrasena_crear_usuario2;
@@ -677,6 +818,7 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
     private javax.swing.JLabel etiqueta_fecha_nac;
     private javax.swing.JLabel etiqueta_instrucciones;
     private javax.swing.JLabel etiqueta_nombre;
+    private javax.swing.JLabel etiqueta_nueva;
     private javax.swing.JLabel etiqueta_usuario;
     private javax.swing.JLabel icono;
     private com.toedter.calendar.JDateChooser jDateChooser1;
@@ -684,11 +826,15 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JButton modificar_password;
     private javax.swing.JLabel msg_bienvenida;
     private javax.swing.JLabel msg_incorrecta;
     private javax.swing.JCheckBox opcion_mostrar;
     private javax.swing.JPanel panel_loggin;
+    private javax.swing.JLabel texto_password;
+    private javax.swing.JFrame ventana_cambiar_password;
     private javax.swing.JFrame ventana_crear_usuario;
     private javax.swing.JFrame ventana_log_correcto;
     // End of variables declaration//GEN-END:variables
