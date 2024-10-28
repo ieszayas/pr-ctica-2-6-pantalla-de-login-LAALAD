@@ -70,7 +70,7 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
         caja_apellido = new javax.swing.JTextField();
         caja_fecha_nac = new javax.swing.JTextField();
         caja_correo = new javax.swing.JTextField();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        calendario = new com.toedter.calendar.JDateChooser();
         ventana_cambiar_password = new javax.swing.JFrame();
         jPanel3 = new javax.swing.JPanel();
         caja_antigua = new javax.swing.JPasswordField();
@@ -128,10 +128,6 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(icono)
-                .addGap(70, 70, 70))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -140,7 +136,11 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
                     .addComponent(msg_bienvenida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(boton_nuevo_usuario_log, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(modificar_password, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(icono)
+                .addGap(64, 64, 64))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,7 +151,7 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
                 .addComponent(icono)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(msg_bienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(modificar_password)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(boton_nuevo_usuario_log)
@@ -166,8 +166,8 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
             ventana_log_correctoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ventana_log_correctoLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         ventana_log_correctoLayout.setVerticalGroup(
             ventana_log_correctoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,7 +256,7 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
                                                 .addGap(18, 18, 18)
                                                 .addComponent(caja_fecha_nac)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addComponent(calendario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(21, 21, 21)
                                         .addComponent(caja_apellido))
@@ -304,7 +304,7 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(etiqueta_fecha_nac)
                         .addComponent(caja_fecha_nac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(calendario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etiqueta_correo)
@@ -573,7 +573,7 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_loggearActionPerformed
 
     public void mostrarVentanaLogeo(String usuario) {
-        ventana_log_correcto.setSize(330, 330);
+        ventana_log_correcto.setSize(330, 400);
         msg_bienvenida.setText("El usuario " + usuario + " está logueado");
         ventana_log_correcto.setLocationRelativeTo(this);
         ventana_log_correcto.setVisible(true);
@@ -692,6 +692,8 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
         Usuario nuevo = new Usuario(username, contrasena);
         nuevo.setNombre(caja_nombre.getText());
         nuevo.setApellido(caja_apellido.getText());
+//        Dateformat df 
+//        fecha = calendario.getDate()
         nuevo.setFecha_nac(caja_fecha_nac.getText());
         nuevo.setCorreo(caja_correo.getText());
         UsuarioDAO.insertarUsuario(nuevo);
@@ -729,12 +731,28 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
 
         if (!passwd_antigua_correcta) {
             JOptionPane.showMessageDialog(null, "La contraseña actual introducida no es correcta.", "Contraseña incorrecta", JOptionPane.WARNING_MESSAGE);
+            return;
         }
 
         if (!passwd_nueva_coincide) {
             caja_nueva.setBackground(Color.red);
             caja_confirmar.setBackground(Color.red);
+            return;
         }
+
+        if (passwd_antigua.equals(passwd_nueva)) {
+            JOptionPane.showMessageDialog(null, "La contraseña nueva no puede coincidir con la actual", "Contraseña identica", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if(passwd_nueva.isBlank() || passwd_nueva_confirmada.isBlank() || passwd_antigua.isBlank() ){
+            JOptionPane.showMessageDialog(null, "Rellene todos los campos", "Campos vacíos", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        modificar.setPassword(passwd_nueva);
+        UsuarioDAO.modificarPasswordUsuario(modificar);
+        JOptionPane.showMessageDialog(null, "Contraseña actualizada exitosamente", "Contraseña actualizada", JOptionPane.WARNING_MESSAGE);
+        ventana_cambiar_password.setVisible(false);
     }//GEN-LAST:event_actualizar_passwordActionPerformed
 
     private void caja_nuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caja_nuevaActionPerformed
@@ -805,6 +823,7 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
     private javax.swing.JPasswordField caja_password;
     private javax.swing.JTextField caja_username;
     private javax.swing.JTextField caja_username_crear;
+    private com.toedter.calendar.JDateChooser calendario;
     private javax.swing.JButton cerrar_sesion;
     private javax.swing.JLabel crear_cuenta;
     private javax.swing.JLabel eiqueta_usuario;
@@ -821,7 +840,6 @@ public class Ventana_practica2_6 extends javax.swing.JFrame {
     private javax.swing.JLabel etiqueta_nueva;
     private javax.swing.JLabel etiqueta_usuario;
     private javax.swing.JLabel icono;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;

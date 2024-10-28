@@ -58,7 +58,7 @@ public class UsuarioDAO {
         }
     }
 
-    public boolean modificarPasswordUsuario(Usuario usuario) {
+    public static boolean modificarPasswordUsuario(Usuario usuario) {
         try{
             String sq = "UPDATE usuario SET password = ? where username = ?";
             PreparedStatement ps = ConexionBBDD.getConnection().prepareStatement(sq);
